@@ -15,6 +15,8 @@ public class Customer {
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private String id;
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private Long identificationNumber;
     private String identificationType;
     private String name;
@@ -30,6 +32,14 @@ public class Customer {
     @UpdateTimestamp
     @Column(name = "updated_at", nullable = false)
     private Date updatedAt;
+
+    public List<BranchAddress> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<BranchAddress> addresses) {
+        this.addresses = addresses;
+    }
 
     public String getId() {
         return id;
