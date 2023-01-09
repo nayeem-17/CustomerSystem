@@ -3,6 +3,8 @@ package com.minegocio.customersystem.dto;
 import com.minegocio.customersystem.model.BranchAddress;
 import com.minegocio.customersystem.model.Customer;
 
+import java.util.List;
+
 public class CustomerDTO {
     private Long identificationNumber;
     private String identificationType;
@@ -20,10 +22,16 @@ public class CustomerDTO {
         this.email = c.getEmail();
         this.name = c.getName();
         this.cellPhone = c.getCellPhone();
-        BranchAddress mainAddress = c.getAddresses().stream().filter(a -> a.isPrimaryAddress()).findFirst().get();
-        this.mainProvince = mainAddress.getProvince();
-        this.mainCity = mainAddress.getCity();
-        this.mainAddress = mainAddress.getAddress();
+        List<BranchAddress> mainAddress = c.getAddresses();
+        for (BranchAddress b : mainAddress) {
+            if (b.isPrimaryAddress()) {
+                this.mainProvince = b.getProvince();
+                this.mainCity = b.getCity();
+                this.mainAddress = b.getAddress();
+                break;
+            }
+        }
+
     }
 
 

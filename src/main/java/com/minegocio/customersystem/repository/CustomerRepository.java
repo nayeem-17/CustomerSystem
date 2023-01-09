@@ -11,4 +11,5 @@ public interface CustomerRepository extends JpaRepository<Customer, String> {
     Customer findByIdentificationNumber(Long identificationNumber);
 
     List<Customer> findCustomerByName(String name);
+
 }
