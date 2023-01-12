@@ -1,9 +1,9 @@
 package com.minegocio.customersystem.dto;
 
+import java.util.List;
+
 import com.minegocio.customersystem.model.BranchAddress;
 import com.minegocio.customersystem.model.Customer;
-
-import java.util.List;
 
 public class CustomerDTO {
     private Long identificationNumber;
@@ -15,6 +15,9 @@ public class CustomerDTO {
     private String mainProvince;
     private String mainCity;
     private String mainAddress;
+
+    public CustomerDTO() {
+    }
 
     public CustomerDTO(Customer c) {
         this.identificationType = c.getIdentificationType();
@@ -33,7 +36,6 @@ public class CustomerDTO {
         }
 
     }
-
 
     public Long getIdentificationNumber() {
         return identificationNumber;
@@ -98,4 +100,18 @@ public class CustomerDTO {
     public void setMainAddress(String mainAddress) {
         this.mainAddress = mainAddress;
     }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#toString()
+     */
+
+    @Override
+    public String toString() {
+        return "CustomerDTO [identificationNumber=" + identificationNumber + ", identificationType="
+                + identificationType + ", name=" + name + ", email=" + email + ", cellPhone=" + cellPhone
+                + ", mainProvince=" + mainProvince + ", mainCity=" + mainCity + ", mainAddress=" + mainAddress + "]";
+    }
+
 }

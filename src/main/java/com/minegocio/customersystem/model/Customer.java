@@ -1,13 +1,18 @@
 package com.minegocio.customersystem.model;
 
-import jakarta.persistence.*;
+import java.util.Date;
+import java.util.List;
+
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
 
-
-import java.util.Date;
-import java.util.List;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Customer {
@@ -23,7 +28,7 @@ public class Customer {
     private String email;
     private String cellPhone;
 
-    @OneToMany
+    @OneToMany(cascade = { CascadeType.ALL })
     private List<BranchAddress> addresses;
     @CreationTimestamp
     @Column(name = "created_at")
@@ -95,6 +100,19 @@ public class Customer {
 
     public Date getUpdatedAt() {
         return updatedAt;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#toString()
+     */
+
+    @Override
+    public String toString() {
+        return "Customer [id=" + id + ", identificationNumber=" + identificationNumber + ", identificationType="
+                + identificationType + ", name=" + name + ", email=" + email + ", cellPhone=" + cellPhone
+                + ", addresses=" + addresses + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + "]";
     }
 
 }

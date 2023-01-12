@@ -1,12 +1,13 @@
 package com.minegocio.customersystem.service;
 
-import com.minegocio.customersystem.model.BranchAddress;
-import com.minegocio.customersystem.model.Customer;
-import com.minegocio.customersystem.repository.CustomerRepository;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.minegocio.customersystem.model.BranchAddress;
+import com.minegocio.customersystem.model.Customer;
+import com.minegocio.customersystem.repository.CustomerRepository;
 
 @Service
 public class CustomerService {
@@ -22,6 +23,7 @@ public class CustomerService {
             this.customerRepository.save(customer);
             return true;
         } catch (Exception e) {
+            System.out.println(e);
             return false;
         }
     }
