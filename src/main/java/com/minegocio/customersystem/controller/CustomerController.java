@@ -20,15 +20,22 @@ import com.minegocio.customersystem.model.BranchAddress;
 import com.minegocio.customersystem.model.Customer;
 import com.minegocio.customersystem.service.CustomerService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+
 @RestController
 @RequestMapping("/api/v01/customer")
+@Api("Customer Service")
 public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
     // Functionality to search for and obtain a list of customers.
     @PostMapping("/{name}")
-    public List<CustomerDTO> getCustomers(@PathVariable String name) {
+    @ApiOperation(value = "Get specific customer by Name")
+    public List<CustomerDTO> getCustomers(
+            @ApiParam(value = "Customer Name to retrieve", required = true) @PathVariable String name) {
         List<Customer> customers = customerService.getCustomersByName(name);
         List<CustomerDTO> result = new ArrayList<>();
         for (Customer c : customers) {
@@ -40,6 +47,7 @@ public class CustomerController {
 
     // Functionality to create a new customer with the head office address
     @PostMapping("/create")
+    @ApiOperation(value = "View a list of available customers", response = List.class)
     public ResponseEntity<Boolean> createCustomer(@RequestBody CustomerDTO customerDTO) {
         // System.out.println(customerDTO);
 
@@ -67,7 +75,7 @@ public class CustomerController {
     // Functionality to edit customer data
     @PutMapping("/{identificationNumber}")
     public boolean updateCustomerData(@PathVariable("identificationNumber") Long identificationNumber,
-            Customer customer) {
+                                      Customer customer) {
         return this.customerService.updateCustomer(customer, identificationNumber);
     }
 
@@ -80,7 +88,7 @@ public class CustomerController {
 
     // Functionality to register a new address per customer
     @PostMapping("/{identificationNumber}/address")
-    public void addAddress(@PathVariable Long identificationNumber, BranchAddress address) {
+    public void addAddress(@PathVariable Long identificationNumber, @RequestBody BranchAddress address) {
         this.customerService.addAddress(identificationNumber, address);
     }
 
