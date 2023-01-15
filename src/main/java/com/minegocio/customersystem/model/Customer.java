@@ -13,7 +13,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-
+import lombok.Data;
+@Data
 @Entity
 public class Customer {
     @Id
@@ -37,82 +38,4 @@ public class Customer {
     @UpdateTimestamp
     @Column(name = "updated_at", nullable = false)
     private Date updatedAt;
-
-    public List<BranchAddress> getAddresses() {
-        return addresses;
-    }
-
-    public void setAddresses(List<BranchAddress> addresses) {
-        this.addresses = addresses;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public Long getIdentificationNumber() {
-        return identificationNumber;
-    }
-
-    public void setIdentificationNumber(Long identificationNumber) {
-        this.identificationNumber = identificationNumber;
-    }
-
-    public String getIdentificationType() {
-        return identificationType;
-    }
-
-    public void setIdentificationType(String identificationType) {
-        this.identificationType = identificationType;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getCellPhone() {
-        return cellPhone;
-    }
-
-    public void setCellPhone(String cellPhone) {
-        this.cellPhone = cellPhone;
-    }
-
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see java.lang.Object#toString()
-     */
-
-    @Override
-    public String toString() {
-        return "Customer [id=" + id + ", identificationNumber=" + identificationNumber + ", identificationType="
-                + identificationType + ", name=" + name + ", email=" + email + ", cellPhone=" + cellPhone
-                + ", addresses=" + addresses + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + "]";
-    }
-
 }

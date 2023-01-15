@@ -11,8 +11,8 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-@Configurable
 @EnableSwagger2
+@Configurable
 public class SwaggerConfig {
     public static final String AUTHORIZATION_HEADER = "Authorization";
 

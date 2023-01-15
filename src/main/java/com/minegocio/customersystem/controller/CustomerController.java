@@ -46,7 +46,7 @@ public class CustomerController {
     }
 
     // Functionality to create a new customer with the head office address
-    @PostMapping("/create")
+    @PostMapping
     @ApiOperation(value = "View a list of available customers", response = List.class)
     public ResponseEntity<Boolean> createCustomer(@RequestBody CustomerDTO customerDTO) {
         // System.out.println(customerDTO);

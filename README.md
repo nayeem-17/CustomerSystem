@@ -6,7 +6,7 @@ This service contains a set if endpoints
      the response will be the list of Customer information with this `name`.
 
 -    Functionality to create a new customer with the head office address
-      `POST localhost:8080/api/v01/customer/create`
+      `POST localhost:8080/api/v01/customer`
         the request body will be the information of a customer
         ```json
         {
