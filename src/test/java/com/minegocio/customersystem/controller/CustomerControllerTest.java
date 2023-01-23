@@ -5,10 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 
-import com.minegocio.customersystem.dto.CustomerDTO;
-import com.minegocio.customersystem.model.BranchAddress;
-import com.minegocio.customersystem.model.Customer;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -19,6 +15,10 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.ResponseEntity;
 
+import com.minegocio.customersystem.dto.CustomerDTO;
+import com.minegocio.customersystem.model.BranchAddress;
+import com.minegocio.customersystem.model.Customer;
+
 class CustomerControllerTest {
     /**
      * Method under test: {@link CustomerController#getCustomers(String)}
@@ -27,8 +27,6 @@ class CustomerControllerTest {
     @Disabled("TODO: Complete this test")
     void testGetCustomers() {
         // TODO: Complete this test.
-        //   Diffblue AI was unable to find a test
-
         (new CustomerController()).getCustomers("Name");
     }
 
@@ -37,10 +35,7 @@ class CustomerControllerTest {
      */
     @Test
     void testCreateCustomer() {
-        //   Diffblue Cover was unable to write a Spring test,
-        //   so wrote a non-Spring test instead.
-        //   Diffblue AI was unable to find a test
-
+        // so wrote a non-Spring test instead.
         CustomerController customerController = new CustomerController();
         ResponseEntity<Boolean> actualCreateCustomerResult = customerController.createCustomer(new CustomerDTO());
         assertFalse(actualCreateCustomerResult.getBody());
@@ -53,39 +48,7 @@ class CustomerControllerTest {
      */
     @Test
     @Disabled("TODO: Complete this test")
-    void testCreateCustomer2() {
-        //   Diffblue Cover was unable to write a Spring test,
-        //   so wrote a non-Spring test instead.
-        //   Diffblue AI was unable to find a test
-
-        // TODO: Complete this test.
-        //   Reason: R013 No inputs found that don't throw a trivial exception.
-        //   Diffblue Cover tried to run the arrange/act section, but the method under
-        //   test threw
-        //   java.lang.NullPointerException: Cannot invoke "com.minegocio.customersystem.dto.CustomerDTO.getMainAddress()" because "customerDTO" is null
-        //       at com.minegocio.customersystem.controller.CustomerController.createCustomer(CustomerController.java:54)
-        //   See https://diff.blue/R013 to resolve this issue.
-
-        (new CustomerController()).createCustomer(null);
-    }
-
-    /**
-     * Method under test: {@link CustomerController#createCustomer(CustomerDTO)}
-     */
-    @Test
-    @Disabled("TODO: Complete this test")
     void testCreateCustomer3() {
-        //   Diffblue Cover was unable to write a Spring test,
-        //   so wrote a non-Spring test instead.
-        //   Diffblue AI was unable to find a test
-
-        // TODO: Complete this test.
-        //   Reason: R013 No inputs found that don't throw a trivial exception.
-        //   Diffblue Cover tried to run the arrange/act section, but the method under
-        //   test threw
-        //   java.lang.NullPointerException: Cannot invoke "com.minegocio.customersystem.service.CustomerService.createCustomer(com.minegocio.customersystem.model.Customer)" because "this.customerService" is null
-        //       at com.minegocio.customersystem.controller.CustomerController.createCustomer(CustomerController.java:72)
-        //   See https://diff.blue/R013 to resolve this issue.
 
         CustomerController customerController = new CustomerController();
 
@@ -95,14 +58,13 @@ class CustomerControllerTest {
     }
 
     /**
-     * Method under test: {@link CustomerController#updateCustomerData(Long, Customer)}
+     * Method under test:
+     * {@link CustomerController#updateCustomerData(Long, Customer)}
      */
     @Test
     @Disabled("TODO: Complete this test")
     void testUpdateCustomerData() {
         // TODO: Complete this test.
-        //   Diffblue AI was unable to find a test
-
         CustomerController customerController = new CustomerController();
 
         Customer customer = new Customer();
@@ -123,8 +85,6 @@ class CustomerControllerTest {
     @Disabled("TODO: Complete this test")
     void testDeleteCustomer() {
         // TODO: Complete this test.
-        //   Diffblue AI was unable to find a test
-
         (new CustomerController()).deleteCustomer(1L);
     }
 
@@ -135,8 +95,6 @@ class CustomerControllerTest {
     @Disabled("TODO: Complete this test")
     void testAddAddress() {
         // TODO: Complete this test.
-        //   Diffblue AI was unable to find a test
-
         CustomerController customerController = new CustomerController();
 
         BranchAddress branchAddress = new BranchAddress();
@@ -159,8 +117,6 @@ class CustomerControllerTest {
     @Disabled("TODO: Complete this test")
     void testAddAddress2() {
         // TODO: Complete this test.
-        //   Diffblue AI was unable to find a test
-
         CustomerController customerController = new CustomerController();
 
         BranchAddress branchAddress = new BranchAddress();
@@ -182,9 +138,6 @@ class CustomerControllerTest {
     @Disabled("TODO: Complete this test")
     void testGetAddress() {
         // TODO: Complete this test.
-        //   Diffblue AI was unable to find a test
-
         (new CustomerController()).getAddress(1L);
     }
 }
-

@@ -20,22 +20,15 @@ import com.minegocio.customersystem.model.BranchAddress;
 import com.minegocio.customersystem.model.Customer;
 import com.minegocio.customersystem.service.CustomerService;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
-
 @RestController
 @RequestMapping("/api/v01/customer")
-@Api("Customer Service")
 public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
-    // Functionality to search for and obtain a list of customers.
     @PostMapping("/{name}")
-    @ApiOperation(value = "Get specific customer by Name")
     public List<CustomerDTO> getCustomers(
-            @ApiParam(value = "Customer Name to retrieve", required = true) @PathVariable String name) {
+            @PathVariable String name) {
         List<Customer> customers = customerService.getCustomersByName(name);
         List<CustomerDTO> result = new ArrayList<>();
         for (Customer c : customers) {
@@ -45,11 +38,8 @@ public class CustomerController {
         return result;
     }
 
-    // Functionality to create a new customer with the head office address
     @PostMapping
-    @ApiOperation(value = "View a list of available customers", response = List.class)
     public ResponseEntity<Boolean> createCustomer(@RequestBody CustomerDTO customerDTO) {
-        // System.out.println(customerDTO);
 
         if (customerDTO.getMainAddress() == null) {
             // send an error message with http response 404
@@ -75,7 +65,7 @@ public class CustomerController {
     // Functionality to edit customer data
     @PutMapping("/{identificationNumber}")
     public boolean updateCustomerData(@PathVariable("identificationNumber") Long identificationNumber,
-                                      Customer customer) {
+            Customer customer) {
         return this.customerService.updateCustomer(customer, identificationNumber);
     }
 
